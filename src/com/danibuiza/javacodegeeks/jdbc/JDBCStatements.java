@@ -15,9 +15,8 @@ public class JDBCStatements
 
     public static void main( String[] args ) throws SQLException, ClassNotFoundException
     {
+        // connection to JDBC using mysql driver
         Class.forName( "com.mysql.jdbc.Driver" );
-
-        // connection
         Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?"
             + "user=root&password=root" );
 

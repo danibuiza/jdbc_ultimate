@@ -7,7 +7,8 @@ import java.sql.Statement;
 
 /**
  * This class contains a small example about how to use in memory databases within JDBC, in this
- * case HSQLDB
+ * case HSQLDB. In memory databases are very useful while testing because the data can be easily
+ * populated for each execution
  * 
  * @author dgutierrez-diez
  */
@@ -33,7 +34,8 @@ public class HSQLDBExample
         // nothing is in the database because it is just in memory, non persistent
         selectAll( conn );
 
-        // after some insertions, the select shows something different
+        // after some insertions, the select shows something different, in the next execution these
+        // entries will not be there
         insertRows( conn );
         selectAll( conn );
 

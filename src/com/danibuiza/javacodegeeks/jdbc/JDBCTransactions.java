@@ -62,9 +62,8 @@ public class JDBCTransactions
      */
     private static void delete() throws SQLException, ClassNotFoundException
     {
+        // connection to JDBC using mysql driver
         Class.forName( "com.mysql.jdbc.Driver" );
-
-        // connection
         Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?"
             + "user=root&password=root" );
         System.out.println( "Deleting rows for JAPAN..." );
@@ -88,9 +87,8 @@ public class JDBCTransactions
      */
     private static void selectAll() throws SQLException, ClassNotFoundException
     {
+        // connection to JDBC using mysql driver
         Class.forName( "com.mysql.jdbc.Driver" );
-
-        // connection
         Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?"
             + "user=root&password=root" );
         Statement statement = connect.createStatement();
@@ -120,6 +118,7 @@ public class JDBCTransactions
      */
     private static void insertAndUpdate( boolean transactions ) throws SQLException, ClassNotFoundException
     {
+        // connection to JDBC using mysql driver
         Class.forName( "com.mysql.jdbc.Driver" );
         Connection connect = null;
         try
@@ -174,7 +173,7 @@ public class JDBCTransactions
         Connection connect = null;
         try
         {
-            // connection
+            // connection to JDBC using mysql driver
             connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?" + "user=root&password=root" );
             connect.setAutoCommit( false );
 

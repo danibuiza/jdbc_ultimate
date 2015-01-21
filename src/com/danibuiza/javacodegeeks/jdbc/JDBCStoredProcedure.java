@@ -18,13 +18,12 @@ public class JDBCStoredProcedure
     public static void main( String[] args ) throws SQLException, ClassNotFoundException
     {
 
-        CallableStatement callableStatement = null;
-
+        // connection to JDBC using mysql driver
         Class.forName( "com.mysql.jdbc.Driver" );
-
-        // connection
         Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?"
             + "user=root&password=root" );
+
+        CallableStatement callableStatement = null;
 
         // the procedure should be created in the database
         String spanishProcedure = "{call spanish(?)}";
