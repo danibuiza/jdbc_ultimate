@@ -199,6 +199,7 @@ public class JDBCTransactions
         catch( SQLException ex )
         {
             ex.printStackTrace();
+            //undoes all changes in current transaction
             connect.rollback();
         }
         finally

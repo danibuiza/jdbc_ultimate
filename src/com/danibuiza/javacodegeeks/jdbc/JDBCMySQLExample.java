@@ -25,25 +25,33 @@ public class JDBCMySQLExample
         Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost/countries?"
             + "user=root&password=root" );
 
-        Statement statement = connect.createStatement();
+       
+        selectAll( connect );
 
-        // select query
+        // close resources, in case of exception resources are not properly cleared
+
+    }
+    
+    /**
+     * select statement and print out results in a JDBC result set
+     * 
+     * @param conn
+     * @throws SQLException
+     */
+    private static void selectAll( java.sql.Connection conn ) throws SQLException
+    {
+        Statement statement = conn.createStatement();
+
         ResultSet resultSet = statement.executeQuery( "select * from COUNTRIES" );
 
         while( resultSet.next() )
         {
-            // access via name
             String name = resultSet.getString( "NAME" );
             String population = resultSet.getString( "POPULATION" );
 
-            System.out.println( "Name: " + name );
-            System.out.println( "Population: " + population );
+            System.out.println( "NAME: " + name );
+            System.out.println( "POPULATION: " + population );
         }
-
-        // close resources, in case of exception resources are not properly cleared
-        resultSet.close();
-        statement.close();
-        connect.close();
 
     }
 }
